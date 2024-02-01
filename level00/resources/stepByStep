@@ -1,0 +1,17 @@
+nothing in the home directory, something is probably hidden somewhere.
+
+with the command find, we can find files and directories related to users.
+In our case, flag00.
+
+We came up with the following command : `find / -user flag00`
+
+-> result showing a ton of forbidden paths,
+but also two paths leading to the same file, containing a string
+
+Tested raw string for the flag00 password : X
+
+We searched for a way to decrypt the string,
+we tried the most common "encryption", cesar, with all possible offsets.
+The most meaningful one was found on the offset of 15.
+
+password : nottoohardhere

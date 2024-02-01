@@ -1,0 +1,19 @@
+there is the file level02.pcap in the home directory.
+
+Using SCP, we managed to exfiltrate the file from the virtual machine,
+and imported it with wireshark on another virtual machine.
+
+From this point, there's a function that allows us to follow the TCP prints,
+and it leaded us to a step by step process of the recorded event.
+
+This event showed someone trying to log-in to a page, with a password.
+
+This password was the following : ft_wandr...NDRel.L0L
+
+After some research, using the ascii table and the hexadecimal values,
+we found out that the dots in the middle of the password were key presses,
+and it leaded us to find "DEL" as the corresponding characters.
+
+After following the DEL characters and taking out the unnecessary letters,
+we got the following password : ft_waNDReL0L
+

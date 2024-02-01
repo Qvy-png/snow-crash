@@ -1,0 +1,39 @@
+When you log in, in your home repo you have 2 files, one is a binary and one is
+a token wich contains non printable characters when you try to display it.
+
+The token has been "Transformed" by the binary, if you test it you'll see that
+when you give him an argument it will go through every character and add
+n+index to its ascii value.
+
+Once you know that, you just have to write a C binary that will do the same
+thing but reversed.
+
+smth like that:
+
+#include <unistd.h>
+#include <string.h>
+#include <stdio.h>
+
+int     main(int argc, char **argv)
+{
+        int i = 0;
+        int len = strlen(argv[1]);
+
+        while (argv[1][i] != '\0')
+        {
+                printf("%c", argv[1][i] - i);
+                i++;
+        }
+        return 0;
+}
+
+Just send this c file inside the SC machine with scp (put it in var crash since
+you can write here):
+
+"scp -P 4243 decode.c level09@localhost:/var/crash/"
+
+Now you just have to put the "cat token" output into a env variable so you can
+use this variable with our code.
+
+It gives you the flag09 password.
+

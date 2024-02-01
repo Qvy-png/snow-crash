@@ -1,0 +1,17 @@
+Nothing in the home directory.
+Not much more access to files or directories than the previous level.
+
+Trying to see if there are the password displayed somewhere.
+We found the file /etc/passwd.
+
+cat /etc/passwd
+
+-> result showing all the different users,
+with flag01 being the only one with a cryped password displayed,
+the other ones being marked as X.
+
+after doing research, and installing john the ripper on another machine,
+
+we got the following result : 
+abcdefg
+

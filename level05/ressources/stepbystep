@@ -1,0 +1,26 @@
+First, when you log on the "Level05" user,
+you get a message notifying you that you received a new "mail"
+
+You can read in /var/mail/level05
+It contains a cronjob instruction line :
+*/2 * * * * su -c "sh /usr/sbin/openarenaserver" - flag05
+
+You can add this command line in the crontab file : crontab -e
+
+This command line will execute a bash script located at :
+/usr/sbin/openarenaserver.
+
+The bash script is executed once every 2 minutes by cronjob,
+when executed, it checks.
+
+If there is an executable bash script located at : /opt/openarenaserver/*,
+it executes it, then deletes it.
+
+You just have to write a small bash script executing the "getflag" command,
+and redirecting its output into a file you can read later (won't be deleted).
+You can create files in /var/crash so we'll put it here.
+
+getflag > /var/crash/res
+
+now just cat your /var/crash/res file and the token is yours
+

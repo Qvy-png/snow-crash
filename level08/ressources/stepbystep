@@ -1,0 +1,14 @@
+When you log in, you get a binary and a token, the binary is supposed to 
+display the token but it won't if its name is token.
+
+To bypass this rule, you can create a symlink (in /var/crash) and call it
+whatever name you want:
+
+once in /var/crash: ln -s /home/user/level08/token test
+
+Then execute the binary with your newly created symlink:
+
+./level08 /var/crash/test.
+
+Then log in to flag08.
+

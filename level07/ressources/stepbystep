@@ -1,0 +1,11 @@
+When you log in to this user, there is a binary in the home dir.
+Using ghidra to read its C equivalent, you can easily understand what it does;
+it takes the env var "LOGNAME" and displays it.
+
+You just have to mess arround with export and syntax to give the binary a string
+he will execute:
+
+export 'LOGNAME=$(getflag)'
+
+then you log into getflag.
+

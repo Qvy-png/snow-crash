@@ -1,0 +1,26 @@
+/home/user/level04/level04.pl
+
+this file contains some perl code that appears to send data to a web page,
+expecting an answer
+
+using curl to get informations from this address,
+we are getting some interesting informations
+
+when doing the following command, "curl localhost:4747",
+we get an index page that matches the one we are getting from the program.
+
+The program seems to send a value x to the webpage, expecting an answer.
+From this, we can mimique the program and manually send a x value
+
+it would look something like this : curl localhost:4747/?x=<insert value>
+
+from this command, we are getting the value back from the page,
+meaning that we could possibly inject some bash code to get the flag
+
+after many tries,
+we found that the following command allows us to execute getflag : 
+
+curl 'localhost:4747/?x=$(getflag)'
+
+flag : ne2searoevaevoem4ov4ar8ap
+

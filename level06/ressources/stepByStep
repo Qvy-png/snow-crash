@@ -1,0 +1,30 @@
+/home/user/level06/level06
+/home/user/level06/level06.php
+
+level06 seems to be a binary file that uses the level06.php file as a template.
+
+Since we have access to the levell06.php's code, we can check what it does.
+In our case, it is a simple php script that plays with regex parsing,
+with arguments that are passed in parameters.
+
+After a few researches on the different regex interpretations,
+we found out that it uses /e, which is a depricated argument, easily attackable.
+Its purpose is to execute php code within itself. 
+
+We can conclude that it is possible to execute some php commands,
+that would allow us to execute code on our machine,
+with the rights of the level06 binary file.
+
+Further researches shows that we can use the command "exec",
+which is a php command able to execute code on the host machine.
+
+We came up with the following php code : [x {${exec(getflag)}}]
+
+for a simple explanation,
+the ${} format allows us to create a sub-shell that will execute code,
+on the behalf of the binary file.
+So we ran the exec command, as stated previously, on the getflag command.
+Since level06 has the flag07 rights, it directly gave us the result of the flag.
+
+flag : wiok45aaoguiboiki2tuin6ub 
+

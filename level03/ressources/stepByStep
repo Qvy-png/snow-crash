@@ -1,0 +1,30 @@
+there's a file at the home directory of level03
+
+`-rwsr-sr-x 1 flag03  level03 8627 Mar  5  2016 level03`
+
+this file has the flag03 permissions
+
+After using ghidra, a software that allows decompilation of binary files,
+we found out that it uses the following line of code : 
+
+"system( /usr/bin/usr echo Exploit me)"
+
+from this basis, it means that it uses whatever echo is available on the path.
+
+After further tests,
+making our own echo with a "hello world" on the path /var/crash,
+we found out that the theory works.
+
+we modified the path, adding the /var/crash:
+	argument to the beginning of the variable in the env,
+	we succeeded to get the flag.
+
+The custom echo used the following command : system( getflag );
+
+Since the level03 binary has the flag03 rights,
+it meant that we did not need to log-in to any user named flag03,
+and directly got the flag as a respons.
+
+the flag is the following :
+qi0maab88jeaj46qoumi7maus
+
